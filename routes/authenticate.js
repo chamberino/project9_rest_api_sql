@@ -40,7 +40,7 @@ module.exports = (req, res, next) => {
                         emailAddress: user.emailAddress
                     }
                     next();
-                    return null
+                    return null;
                 } else {
                     // Else log authentication error message to use and set 401 status code
                     message = `Authentication failure for username: ${user.firstName} + ${user.lastName}`;
