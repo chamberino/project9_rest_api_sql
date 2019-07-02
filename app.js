@@ -7,7 +7,6 @@ const morgan = require('morgan');
 const { models } = require('./models');
 const Sequelize = require('sequelize');
 
-
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var coursesRouter = require('./routes/courses');
@@ -87,7 +86,6 @@ app.use((err, req, res, next) => {
 
 // set our port
 app.set('port', process.env.PORT || 5000);
-
 // start listening on our port
 const server = app.listen(app.get('port'), () => {
   console.log(`Express server is listening on port ${server.address().port}`);

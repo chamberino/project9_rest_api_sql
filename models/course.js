@@ -37,12 +37,7 @@ module.exports = (sequelize, DataTypes) => {
       as: 'user',
       foreignKey: {
         fieldName: 'userId',
-        allowNull: false,
-      },
-      validate: {
-        notEmpty: {
-          msg: "A user is required to create a course"
-        }
+        allowNull: false
       }
     });
     // associations can be defined here

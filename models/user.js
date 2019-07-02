@@ -50,11 +50,6 @@ module.exports = (sequelize, DataTypes) => {
       foreignKey: {
         fieldName: 'userId',
         allowNull: false,
-      },
-      validate: {
-        notEmpty: {
-          msg: "A user is required to create a course"
-        }
       }
     });
   };
