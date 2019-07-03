@@ -47,14 +47,14 @@ router.post('/', [
     } else {
         if (!emailRegEx.test(req.body.emailAddress)) { // Test email against regex
             const error = new Error('Please enter a valid address. Example: foo@bar.com'); //Set custom error    
-            error.status = 409;
+            error.status = 400;
             next(error); // pass error along to global error handler
         } else { // query the database to see if a user has already been created with that email address
             User.findOne({ where: {emailAddress: req.body.emailAddress} })
             .then((user) => {
                 if (user) {
                     const error = new Error('A user with this email address already exists'); //Set custom error    
-                    error.status = 409;
+                    error.status = 400;
                     next(error); // pass error along to global error handler
                 } else {
                     // Hash the new user's password before persisting to the database.
