@@ -11,6 +11,8 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var coursesRouter = require('./routes/courses');
 
+var cors = require('cors');
+
 const options = {
   dialect: 'sqlite',
   storage: './fsjstd-restapi.db',
@@ -44,6 +46,9 @@ const enableGlobalErrorLogging = process.env.ENABLE_GLOBAL_ERROR_LOGGING === 'tr
 
 // create the Express app
 const app = express();
+
+//cors cross-origin request enabling middleware
+app.use(cors());
 
 //JSON parser
 app.use(express.json());
@@ -80,7 +85,7 @@ app.use((err, req, res, next) => {
 
   res.status(err.status || 500).json({
     message: err.message,
-    error: {},
+    errorStatus: err.status,
   });
 });
 
